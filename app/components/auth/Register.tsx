@@ -19,7 +19,7 @@ const Register = () => {
   };
 
   const toHome = () => {
-    //router.push("/");
+    router.push("/");
   };
 
   if (isAuthenticated) {
@@ -33,6 +33,7 @@ const Register = () => {
     if (password === confirmPassword && userName !== "") {
       try {
         await register(email, password, userName);
+        toHome();
       } catch (error) {
         setErrorMessage(
           error instanceof Error ? error.message : "An unknown error occurred"
@@ -54,38 +55,38 @@ const Register = () => {
         <div className="w-[50%]">
           {errorMessage && (
             <div className="error-popup border-2 border-orange-500 rounded-md pl-2 pr-2">
-              <p>{errorMessage}</p>
+              <p className="text-orange-600 text-center">{errorMessage}</p>
             </div>
           )}
         </div>
         <form className="w-[50%] flex flex-col gap-2" onSubmit={handleSubmit}>
-          <label>Username</label>
+          <label className="text-black">Username</label>
           <input
-            className="p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
+            className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="text"
             placeholder="Enter your email.."
             value={userName}
             onChange={(u) => setUserName(u.target.value)}
           ></input>
-          <label>Email</label>
+          <label className="text-black">Email</label>
           <input
-            className="p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
+            className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="text"
             placeholder="Enter your email.."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <label>Password</label>
+          <label className="text-black">Password</label>
           <input
-            className="p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
+            className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="password"
             placeholder="Enter your password.."
             value={password}
             onChange={(p) => setPassword(p.target.value)}
           ></input>
-          <label>Repeat password</label>
+          <label className="text-black">Repeat password</label>
           <input
-            className="p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
+            className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="password"
             placeholder="Enter your password.."
             value={confirmPassword}
@@ -98,7 +99,7 @@ const Register = () => {
             >
               Register
             </button>
-            <p className="form-label flex flex-row items-center justify-center w-[100%] gap-3">
+            <p className="text-black flex flex-row items-center justify-center w-[100%] gap-3">
               Already have an account?
               <button
                 type="button"
