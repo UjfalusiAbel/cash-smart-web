@@ -1,6 +1,7 @@
 import "../../globals.css";
 import React from "react";
 import { FiMoreVertical } from "react-icons/fi";
+import Link from "next/link";
 
 interface InvestmentItemProps {
   name: string;
@@ -45,7 +46,12 @@ const YourInvestments = () => {
     <section className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Your investments</h2>
-        <button className="text-blue-500 hover:text-blue-600">View all</button>
+        <Link
+          href="/yourInvestments"
+          className="text-blue-500 hover:text-blue-600 transition-colors"
+        >
+          Show all
+        </Link>
       </div>
       <div className="bg-white rounded-lg shadow-md">
         {investments.map((investment, index) => (
