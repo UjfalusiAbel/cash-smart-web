@@ -1,5 +1,6 @@
 import "../../globals.css";
 import React from "react";
+import Link from "next/link";
 
 interface StockCardProps {
   rank: string;
@@ -16,7 +17,7 @@ const StockCard: React.FC<StockCardProps> = ({
   change,
   isPositive,
 }) => (
-  <div className="bg-white text-cassini-green rounded-lg shadow-md p-4 flex flex-col gap-2">
+  <div className="bg-white rounded-lg shadow-md p-4 flex flex-col gap-2">
     <div className="flex justify-between items-center">
       <span className="text-gray-500">{rank}</span>
       <span className="text-lg font-semibold">{name}</span>
@@ -66,7 +67,12 @@ const PopularStocks = () => {
     <section className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Popular stocks</h2>
-        <button className="text-blue-500 hover:text-blue-600">Show all</button>
+        <Link
+          href="/popularAssets"
+          className="text-blue-500 hover:text-blue-600 transition-colors"
+        >
+          Show all
+        </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stocks.map((stock) => (
