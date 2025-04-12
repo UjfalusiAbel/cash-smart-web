@@ -12,6 +12,8 @@ RUN npm ci
 # Copy the rest of the files
 COPY . .
 
+COPY .env ../.env
+
 # Build the application
 RUN npm run build
 
