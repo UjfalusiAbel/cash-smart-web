@@ -1,0 +1,80 @@
+import "../../globals.css";
+import React from "react";
+
+interface StockCardProps {
+  rank: string;
+  name: string;
+  price: string;
+  change: string;
+  isPositive: boolean;
+}
+
+const StockCard: React.FC<StockCardProps> = ({
+  rank,
+  name,
+  price,
+  change,
+  isPositive,
+}) => (
+  <div className="bg-white text-cassini-green rounded-lg shadow-md p-4 flex flex-col gap-2">
+    <div className="flex justify-between items-center">
+      <span className="text-gray-500">{rank}</span>
+      <span className="text-lg font-semibold">{name}</span>
+    </div>
+    <div className="flex justify-between items-center">
+      <span className="text-xl font-bold">${price}</span>
+      <span className={`${isPositive ? "text-green-500" : "text-red-500"}`}>
+        {change}
+      </span>
+    </div>
+  </div>
+);
+
+const PopularStocks = () => {
+  const stocks = [
+    {
+      rank: "1st",
+      name: "AAPL",
+      price: "175.84",
+      change: "+2.3%",
+      isPositive: true,
+    },
+    {
+      rank: "2nd",
+      name: "BTC",
+      price: "68,420",
+      change: "+1.8%",
+      isPositive: true,
+    },
+    {
+      rank: "3rd",
+      name: "TSLA",
+      price: "172.63",
+      change: "-0.5%",
+      isPositive: false,
+    },
+    {
+      rank: "4th",
+      name: "ETH",
+      price: "3,890",
+      change: "+3.2%",
+      isPositive: true,
+    },
+  ];
+
+  return (
+    <section className="max-w-7xl mx-auto p-6">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Popular stocks</h2>
+        <button className="text-blue-500 hover:text-blue-600">Show all</button>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {stocks.map((stock) => (
+          <StockCard key={stock.name} {...stock} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default PopularStocks;
