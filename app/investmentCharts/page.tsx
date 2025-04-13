@@ -12,27 +12,29 @@ const InvestmentChartsPage = () => {
   const value = searchParams.get("value");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-cassini to-yellow-cassini py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-white">{name} Analysis</h1>
-          <Link
-            href="/yourInvestments"
-            className="text-white hover:text-gray-200 transition-colors"
-          >
-            Back to Investments
-          </Link>
-        </div>
+    //   <div className="min-h-screen bg-gradient-to-br from-green-cassini to-yellow-cassini py-8">
+    //     <div className="max-w-7xl mx-auto px-4">
+    //       <div className="flex justify-between items-center mb-8">
+    //         <h1 className="text-3xl font-bold text-white">{name} Analysis</h1>
+    //         <Link
+    //           href="/yourInvestments"
+    //           className="text-white hover:text-gray-200 transition-colors"
+    //         >
+    //           Back to Investments
+    //         </Link>
+    //       </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <InvestmentCharts
-            investmentName={name || ""}
-            currentPrice={parseFloat(price || "0")}
-            currentValue={parseFloat(value || "0")}
-          />
-        </div>
-      </div>
-    </div>
+    //       <div className="bg-white rounded-lg shadow-md p-6">
+    //         <InvestmentCharts
+    //           investmentName={name || ""}
+    //           currentPrice={parseFloat(price || "0")}
+    //           currentValue={parseFloat(value || "0")}
+    //         />
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
+    <></>
   );
 };
 
