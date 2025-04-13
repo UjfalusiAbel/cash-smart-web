@@ -68,10 +68,10 @@ const PopularStocks = () => {
   return (
     <section className="max-w-7xl mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-white">Popular stocks</h2>
-        <Link href="/popularAssets" className="text-white hover:text-gray-200 transition-colors">
+        <h2 className="text-2xl font-bold text-white">Popular assets</h2>
+        {/* <Link href="/popularAssets" className="text-white hover:text-gray-200 transition-colors">
           Show all
-        </Link>
+        </Link> */}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-slate-700 font-[18px]">
         {stocks.map((stock) => (

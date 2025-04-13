@@ -100,6 +100,7 @@ const InvestmentCharts: React.FC<InvestmentChartsProps> = ({
         }
 
         const data: AlphaVantageData = await response.json();
+        console.log(data);
 
         if (!data["Time Series (Daily)"]) {
           throw new Error("Invalid data format received from API");

@@ -47,6 +47,44 @@ const YourInvestments = () => {
   const [investments, setInvestments] = useState<InvestmentDTO[]>([]);
   const { userToken } = useContext(AuthContext);
 
+  const handleAddFloat = (e: React.ChangeEvent<HTMLInputElement>, func:React.Dispatch<React.SetStateAction<number>>) => {
+    const parsed = parseFloat(e.target.value);
+    const decimal2 = parsed.toFixed(12);
+    const rateParsed = parseFloat(decimal2);
+    func(rateParsed);
+  }
+
+  const [showForm, setShowForm] = useState(false);
+  const [name, setName] = useState("");
+  const [buyDate, setBuyDate] = useState("");
+  const [buyPrice, setBuyPrice] = useState<number>(0.0);
+  const [fee, setFee] = useState<number>(0.0);
+  const [quantity, setQuantity] = useState<number>(0.0);
+
+  const handleAddInvestment = async () => {
+    const payload: InvestmentDTO = {
+      name,
+      buyDate: new Date(buyDate),
+      buyPrice: Number(buyPrice),
+      fee: Number(fee),
+      quantity: Number(quantity)
+    };
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("buyDate", buyDate);
+    formData.append("buyPrice", buyPrice.toString());
+    formData.append("fee", fee.toString());
+    formData.append("quantity", quantity.toString());
+
+    const response = await fetch(`${apiURL}/investments/add`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${userToken}`
+      },
+      body: formData
+    });
+  };
+
   useEffect(() => {
     const loadInvestment = async () => {
       try {
@@ -72,6 +110,58 @@ const YourInvestments = () => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-white">Your investments</h2>
       </div>
+      <div>
+        <button className="rounded-xl bg-gray-400 p-2 m-3 hover:brightness-110" onClick={() => setShowForm(!showForm)}>
+          <h2 className="text-2xl font-bold text-black p-1">
+            Add investment
+          </h2>
+        </button>
+      </div>
+      {showForm && (
+        <div className="bg-white p-4 rounded-xl shadow-md mb-4 space-y-3">
+          <input
+            type="text"
+            placeholder="Name"
+            className="w-full p-2 border rounded text-black"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="datetime-local"
+            className="w-full p-2 border rounded text-black"
+            value={buyDate}
+            onChange={(e) => setBuyDate(e.target.value)}
+          />
+          <input
+            type="number"
+            step="0.01"
+            placeholder="Buy Price"
+            className="w-full p-2 border rounded text-black"
+            value={buyPrice}
+            onChange={(e) => setBuyPrice(parseFloat(e.target.value))}
+          />
+          <input
+            type="number"
+            step="0.01"
+            placeholder="Fee"
+            className="w-full p-2 border rounded text-black"
+            value={fee}
+            onChange={(e) => setFee(parseFloat(e.target.value))}
+          />
+          <input
+            type="number"
+            step="0.01"
+            placeholder="Quantity"
+            className="w-full p-2 border rounded text-black"
+            value={quantity}
+            onChange={(e) => setQuantity(parseFloat(e.target.value))}
+          />
+          <button onClick={handleAddInvestment} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Submit
+          </button>
+        </div>
+      )}
+
       <div className="bg-white rounded-lg shadow-md divide-y divide-gray-100">
         {investments.map((investment, index) => (
           <InvestmentItem
