@@ -5,7 +5,7 @@ import YourInvestments from "./components/home/YourInvestments";
 
 const MainPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-cassini to-yellow-cassini">
       <Header />
       <main className="pt-20">
         <PopularStocks />

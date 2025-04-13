@@ -123,61 +123,59 @@ const PopularAssets = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-green-cassini to-yellow-cassini py-8">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Popular Assets</h1>
+          <h1 className="text-3xl font-bold text-white">Popular Assets</h1>
           <Link
             href="/"
-            className="text-blue-500 hover:text-blue-600 transition-colors"
+            className="text-white hover:text-gray-200 transition-colors"
           >
             Back to Home
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="mb-6">
-            <input
-              type="text"
-              placeholder="Search assets..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="Search assets..."
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-cassini bg-white bg-opacity-90"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredAssets.map((asset) => (
-              <div
-                key={asset.id}
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => handleAssetClick(asset.id)}
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 className="text-lg font-semibold">{asset.name}</h3>
-                    <span className="text-sm text-gray-500">{asset.type}</span>
-                  </div>
-                  <span
-                    className={`px-2 py-1 rounded-full text-sm ${
-                      asset.isPositive
-                        ? "bg-green-100 text-green-800"
-                        : "bg-red-100 text-red-800"
-                    }`}
-                  >
-                    {asset.change}
-                  </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredAssets.map((asset) => (
+            <div
+              key={asset.id}
+              className="bg-white bg-opacity-90 border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => handleAssetClick(asset.id)}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-lg font-semibold">{asset.name}</h3>
+                  <span className="text-sm text-gray-500">{asset.type}</span>
                 </div>
-                <div className="text-xl font-bold">${asset.price}</div>
-                {holdings[asset.id] && (
-                  <div className="mt-2 text-sm text-gray-600">
-                    Holdings: {holdings[asset.id]} | Total: $
-                    {calculateTotalValue(asset.id)}
-                  </div>
-                )}
+                <span
+                  className={`px-2 py-1 rounded-full text-sm ${
+                    asset.isPositive
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
+                  }`}
+                >
+                  {asset.change}
+                </span>
               </div>
-            ))}
-          </div>
+              <div className="text-xl font-bold">${asset.price}</div>
+              {holdings[asset.id] && (
+                <div className="mt-2 text-sm text-gray-600">
+                  Holdings: {holdings[asset.id]} | Total: $
+                  {calculateTotalValue(asset.id)}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -206,7 +204,7 @@ const PopularAssets = () => {
               </label>
               <input
                 type="text"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-cassini"
                 value={holdings[selectedAsset] || ""}
                 onChange={handleHoldingsChange}
                 placeholder="0.00"
@@ -223,7 +221,7 @@ const PopularAssets = () => {
             <div className="mt-6 flex justify-end">
               <button
                 onClick={handleCloseModal}
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                className="px-4 py-2 bg-green-cassini text-white rounded-lg hover:bg-opacity-90 transition-colors"
               >
                 Done
               </button>

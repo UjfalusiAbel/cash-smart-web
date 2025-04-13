@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-row bg-white w-full h-full justify-center py-36">
+    <div className="flex flex-row bg-gradient-to-br from-green-cassini to-yellow-cassini w-full h-full justify-center py-36">
       <Header />
       <div className="flex flex-col w-[40vw] h-[70vh] border-transparent border justify-center items-center">
         <div className="w-[50%]">
