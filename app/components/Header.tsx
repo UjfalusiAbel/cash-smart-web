@@ -36,7 +36,7 @@ const Header = () => {
           )}
           {!isAuthenticated && (
             <button
-              className="text-black bg-blue-200 p-3 rounded-full"
+              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-green-cassini to-[#4cd47b] text-white text-sm font-medium hover:opacity-90 transition-opacity"
               onClick={() => toLogin()}
             >
               Login

@@ -49,7 +49,7 @@ const Login = () => {
             </div>
           )}
         </div>
-        <form className="w-[50%] flex flex-col gap-2" onSubmit={handleSubmit}>
+        <form className="min-w-[25vw] min-h-[50vh] flex flex-col gap-2 border-[3px] p-4 m-3 rounded-3xl shadow-green-cassini shadow-md" onSubmit={handleSubmit}>
           <label className="text-white">Email</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
@@ -57,29 +57,22 @@ const Login = () => {
             placeholder="Enter your email.."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          ></input>
+          />
           <label className="text-white">Password</label>
           <input
-            className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
+            className="text-black p-3 border max-w- border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="password"
             placeholder="Enter your password.."
             value={password}
             onChange={(p) => setPassword(p.target.value)}
-          ></input>
+          />
           <div className="w-[100%] h-[100%] flex flex-col justify-evenly align-middle items-center gap-3 mt-2">
-            <button
-              type="submit"
-              className="w-[50%] bg-amber-800 rounded-3xl text-white rounded; hover:scale-103"
-            >
+            <button type="submit" className="w-[20%] h-[15%] rounded-3xl text-white rounded; hover:scale-103 bg-green-cassini">
               Login
             </button>
             <p className="text-white flex flex-row items-center justify-center w-[100%] gap-3">
               Don't have an account?
-              <button
-                type="button"
-                onClick={() => toRegister()}
-                className="text-amber-400 text-lg font-bold hover:text-amber-500 transition-transform transform hover:scale-110"
-              >
+              <button type="button" onClick={() => toRegister()} className="text-amber-400 text-lg font-bold hover:text-amber-500 transition-transform transform hover:scale-110">
                 Register
               </button>
             </p>

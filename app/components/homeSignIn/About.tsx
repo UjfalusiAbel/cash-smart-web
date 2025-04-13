@@ -1,14 +1,16 @@
+'use client'
+
 import React from "react";
 
 const About = () => {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen w-full">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-gray-800 text-center">
+          <h2 className="text-4xl font-bold mb-8 text-white text-center">
             About Cash Smart
           </h2>
-          <div className="space-y-6 text-gray-600 text-lg">
+          <div className="space-y-6 text-white text-lg font-[14px]">
             <p className="leading-relaxed">
               Cash Smart is your intelligent financial companion, designed to
               help you take control of your personal finances and make smarter
@@ -16,7 +18,7 @@ const About = () => {
               insights to manage your expenses, track your income, and achieve
               your financial goals.
             </p>
-            <p className="font-semibold text-xl text-gray-700">
+            <p className="font-semibold text-xl text-white">
               With Cash Smart, you can:
             </p>
             <ul className="list-disc pl-8 space-y-4 text-lg">
