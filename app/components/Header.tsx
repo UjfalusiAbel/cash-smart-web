@@ -1,8 +1,18 @@
+"use client";
 import "../globals.css";
-import React from "react";
+import React, { useContext } from "react";
 import { FiUser } from "react-icons/fi";
+import { AuthContext } from "./contexts/AuthProvider";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const { isAuthenticated, logout } = useContext(AuthContext);
+  const router = useRouter();
+
+  const toLogin = () => {
+    router.push("/login");
+  };
+
   return (
     <header className="w-full py-5 px-6 bg-gradient-to-br from-green-cassini/20 to-yellow-cassini/20 backdrop-blur-[32px] relative">
       <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-black/30 backdrop-blur-3xl"></div>
@@ -15,11 +25,23 @@ const Header = () => {
             Smart
           </span>
         </h1>
-        <div className="flex items-center gap-4 cursor-pointer">
-          <span className="text-white text-base font-medium">Your profile</span>
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-cassini/30 to-[#4cd47b]/30 flex items-center justify-center">
-            <FiUser className="w-5 h-5 text-white" />
-          </div>
+        <div className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+          {isAuthenticated && (
+            <button
+              className="text-black bg-blue-200 p-3 rounded-full"
+              onClick={() => logout()}
+            >
+              Logout
+            </button>
+          )}
+          {!isAuthenticated && (
+            <button
+              className="text-black bg-blue-200 p-3 rounded-full"
+              onClick={() => toLogin()}
+            >
+              Login
+            </button>
+          )}
         </div>
       </div>
     </header>

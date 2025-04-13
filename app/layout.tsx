@@ -1,10 +1,8 @@
+"use client";
+
+import AuthProvider from "./components/contexts/AuthProvider";
 import "./globals.css";
 import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "CashSmart",
-  description: "Your personal investment tracking platform",
-};
 
 export default function RootLayout({
   children,
@@ -12,8 +10,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <AuthProvider>
+      <html lang="en" style={{ height: "100%", width: "100%" }}>
+        <body style={{ height: "100%", width: "100%" }}>{children}</body>
+      </html>
+    </AuthProvider>
   );
 }
