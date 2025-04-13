@@ -49,9 +49,9 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-row bg-gradient-to-br from-green-cassini to-yellow-cassini w-full h-full justify-center py-36">
+    <div className="flex flex-col bg-gradient-to-br from-green-cassini to-yellow-cassini w-full h-full items-center">
       <Header />
-      <div className="flex flex-col w-[40vw] h-[70vh] border-transparent border justify-center items-center">
+      <div className="flex flex-col w-[40vw] h-full border-transparent border justify-center items-center">
         <div className="w-[50%]">
           {errorMessage && (
             <div className="error-popup border-2 border-orange-500 rounded-md pl-2 pr-2">
@@ -60,7 +60,7 @@ const Register = () => {
           )}
         </div>
         <form className="w-[50%] flex flex-col gap-2" onSubmit={handleSubmit}>
-          <label className="text-black">Username</label>
+          <label className="text-white">Username</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="text"
@@ -68,7 +68,7 @@ const Register = () => {
             value={userName}
             onChange={(u) => setUserName(u.target.value)}
           ></input>
-          <label className="text-black">Email</label>
+          <label className="text-white">Email</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="text"
@@ -76,7 +76,7 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <label className="text-black">Password</label>
+          <label className="text-white">Password</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="password"
@@ -84,7 +84,7 @@ const Register = () => {
             value={password}
             onChange={(p) => setPassword(p.target.value)}
           ></input>
-          <label className="text-black">Repeat password</label>
+          <label className="text-white">Repeat password</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="password"
@@ -99,12 +99,12 @@ const Register = () => {
             >
               Register
             </button>
-            <p className="text-black flex flex-row items-center justify-center w-[100%] gap-3">
+            <p className="text-white flex flex-row items-center justify-center w-[100%] gap-3">
               Already have an account?
               <button
                 type="button"
                 onClick={() => toLogin()}
-                className="text-amber-800 text-lg font-bold hover:text-amber-900 transition-transform transform hover:scale-110"
+                className="text-amber-400 text-lg font-bold hover:text-amber-500 transition-transform transform hover:scale-110"
               >
                 Login
               </button>

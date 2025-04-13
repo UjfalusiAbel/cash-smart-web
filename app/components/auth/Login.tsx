@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-row bg-gradient-to-br from-green-cassini to-yellow-cassini w-full h-full justify-center py-36">
+    <div className="flex flex-col bg-gradient-to-br from-green-cassini to-yellow-cassini w-full h-full items-center">
       <Header />
       <div className="flex flex-col w-[40vw] h-[70vh] border-transparent border justify-center items-center">
         <div className="w-[50%]">
@@ -50,7 +50,7 @@ const Login = () => {
           )}
         </div>
         <form className="w-[50%] flex flex-col gap-2" onSubmit={handleSubmit}>
-          <label className="text-black">Email</label>
+          <label className="text-white">Email</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="text"
@@ -58,7 +58,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <label className="text-black">Password</label>
+          <label className="text-white">Password</label>
           <input
             className="text-black p-3 border border-gray-300 rounded-lg h-fit text-sm sm:text-lg bg-formGrey hover:outline-none hover:ring-2 hover:ring-brown-600"
             type="password"
@@ -73,12 +73,12 @@ const Login = () => {
             >
               Login
             </button>
-            <p className="text-black flex flex-row items-center justify-center w-[100%] gap-3">
+            <p className="text-white flex flex-row items-center justify-center w-[100%] gap-3">
               Don't have an account?
               <button
                 type="button"
                 onClick={() => toRegister()}
-                className="text-amber-800 text-lg font-bold hover:text-amber-900 transition-transform transform hover:scale-110"
+                className="text-amber-400 text-lg font-bold hover:text-amber-500 transition-transform transform hover:scale-110"
               >
                 Register
               </button>
