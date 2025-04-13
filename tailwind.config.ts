@@ -12,10 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         green: {
-          cassini: "#395844"
-        },
+          cassini: "#292f56"
+        },  
         yellow: {
-          cassini:"#d0a62c"
+          cassini:"#69e882"
         }
       },
     },

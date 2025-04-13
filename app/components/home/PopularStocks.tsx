@@ -64,12 +64,12 @@ const PopularStocks = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Popular stocks</h2>
+    <section className="max-w-7xl mx-auto p-4">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold text-white">Popular stocks</h2>
         <Link
           href="/popularAssets"
-          className="text-blue-500 hover:text-blue-600 transition-colors"
+          className="text-white hover:text-gray-200 transition-colors"
         >
           Show all
         </Link>
